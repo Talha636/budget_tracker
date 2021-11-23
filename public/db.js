@@ -46,10 +46,10 @@ checkDatabase = () => {
     }
 }
 
-const saveRecord = (record) => {
+let saveRecord = (transaction) => {
     const transaction = db.transaction(['budget'], 'readwrite');
     const store = transaction.objectStore('budget');
-    store.clear(record);
+    store.clear(transaction);
 }
 
 window.addEventListener('online', chechDatabase);
